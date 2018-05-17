@@ -65,14 +65,17 @@ BNF = re.sub("(\n\|)\s*", "\n | ", BNF)
 
 flexContent = re.sub("//.*", "", flexContent)
 flexContent = re.sub("/\*.*\*/", "", flexContent)
-marker = "&&&&-->"
+marker = "-->"
 flexContent = re.sub("\n\"(.*?)\"\s*{((.|\s)*?)\(((.|\s)*?)\,((.|\s)*?)\.((.|\s)*?)(,((.|\s)*?))*?\)(.*?)}",r"\n\1 "+marker+" \8" ,flexContent)
 # flexContent = re.sub("\n\"(.*?)\"\s*{(.*?)\((.*?)\)(.*?)}",r"\n\1 \3" ,flexContent)
 # print(flexContent)
 
+print("### TOKENS ###\n\n")
 listToken = []
 for line in flexContent.split("\n"):
 	if(marker in line):
 		print(line+"\n")
-
-# print(BNF)
+print("#################\n\n")
+print("### GRAMMAIRE ###\n\n")
+print("#################\n\n")
+print(BNF)
